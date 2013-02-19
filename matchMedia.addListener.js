@@ -1,6 +1,6 @@
 /*! matchMedia() polyfill addListener/removeListener extension. Author & copyright (c) 2012: Scott Jehl. Dual MIT/BSD license */
 (function(){
-	// monkeypatch unsupported addListener/removeListener with polling
+	// Monkeypatch unsupported addListener/removeListener with polling
 	if( !window.matchMedia( "" ).addListener ){
 		var oldMM = window.matchMedia;
 		
@@ -14,7 +14,7 @@
 						unmatchToMatch = list.matches && !last,
 						matchToUnmatch = !list.matches && last;
                                                 
-                                        //fire callbacks only if transitioning to or from matched state
+					// Fire callbacks only if transitioning to or from matched state
 					if( unmatchToMatch || matchToUnmatch ){
 						for( var i =0, il = listeners.length; i< il; i++ ){
 							listeners[ i ].call( ret, list );
