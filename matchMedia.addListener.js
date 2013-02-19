@@ -22,6 +22,20 @@
 						}
 					}
 					last = list.matches;
+				},
+
+				// Resize throttling flag
+				bufferingResize = false,
+				// Throttling listener wrapper
+				onResizeTriggered = function() {
+					if ( bufferingResize )
+						return;
+					bufferingResize = setTimeout(function() { onBufferedResizeTriggered(); }, 25);
+				},
+				// Throttled listener
+				onBufferedResizeTriggered = function() {
+					check(); // Re-check media queries
+					bufferingResize = false; // Reset throttle
 				};
 			
 			ret.addListener = function( cb ){
