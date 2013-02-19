@@ -49,16 +49,16 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
       body.removeChild( div );
     }
     
-    //also update eminpx before returning
+    // Also update eminpx before returning
     ret = eminpx = parseFloat( div.offsetWidth );
 
     return ret;
   },
   
-  //cached container for 1em value, populated the first time it's needed 
+  // Cached container for 1em value, populated the first time it's needed
   eminpx,
   
-  // verify that we have support for a simple media query
+  // Verify that we have support for a simple media query
   mqSupport = mqRun( '(min-width: 0px)' ).matches;
 
   return function ( q ) {
