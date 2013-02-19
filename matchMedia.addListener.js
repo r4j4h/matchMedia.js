@@ -44,9 +44,9 @@
 				// Activate resizer listener if necessary
 				if( !resizeListener ){
 					if(window.addEventListener) {
-						window.addEventListener('resize', check);
+						window.addEventListener('resize', onResizeTriggered);
 					} else {
-						window.attachEvent('on' + 'resize', check);
+						window.attachEvent('on' + 'resize', onResizeTriggered);
 					}
 					resizeListener = true;
 				}
@@ -57,9 +57,9 @@
 				/*
 				if( !reorientListener ){
 					if(window.addEventListener) {
-						window.addEventListener('deviceorientation', check);
+						window.addEventListener('deviceorientation', onResizeTriggered);
 					} else {
-						window.attachEvent('on' + 'deviceorientation', check);
+						window.attachEvent('on' + 'deviceorientation', onResizeTriggered);
 					}
 					reorientListener = true;
 				}
@@ -77,9 +77,9 @@
 					if( resizeListener ){
 
 						if(window.removeEventListener) {
-							window.removeEventListener('resize', check);
+							window.removeEventListener('resize', onResizeTriggered);
 						} else {
-							window.detachEvent('on' + 'resize', check);
+							window.detachEvent('on' + 'resize', onResizeTriggered);
 						}
 						resizeListener = false;
 					}
@@ -87,9 +87,9 @@
 					// Remove reorientation listener if necessary
 					if( !reorientListener ){
 						if(window.removeEventListener) {
-							window.removeEventListener('deviceorientation', check);
+							window.removeEventListener('deviceorientation', onResizeTriggered);
 						} else {
-							window.detachEvent('on' + 'deviceorientation', check);
+							window.detachEvent('on' + 'deviceorientation', onResizeTriggered);
 						}
 						reorientListener = false;
 					}
