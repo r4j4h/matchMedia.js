@@ -37,7 +37,7 @@
 					check(); // Re-check media queries
 					bufferingResize = false; // Reset throttle
 				};
-			
+
 			ret.addListener = function( cb ){
 				listeners.push( cb );
 
