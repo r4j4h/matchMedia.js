@@ -15,6 +15,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
   fakeBody.style.background = "none";
   fakeBody.appendChild(div);
 
+  // Basic Media Query Polyfill
   var mqRun = function ( q ) {
     div.innerHTML = '&shy;<style media="' + q + '"> #mq-test-1 { width: 42px; }</style>';
     docElem.insertBefore( fakeBody, refNode );
@@ -27,6 +28,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
     };
   },
 
+  // IE 7/8 helper
   getEmValue = function () {
     var ret,
         body = docElem.body,
@@ -65,6 +67,7 @@ window.matchMedia = window.matchMedia || (function( doc, undefined ) {
     if( mqSupport ) {
       return mqRun( q );
     } else {
+      // If no media query support try to hack it in (for IE 7/8)
       var min = q.match( /\(min\-width:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/ ) && parseFloat( RegExp.$1 ) + ( RegExp.$2 || "" ),
           max = q.match( /\(max\-width:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/ ) && parseFloat( RegExp.$1 ) + ( RegExp.$2 || "" ),
           minnull = min === null,
