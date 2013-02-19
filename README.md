@@ -1,4 +1,4 @@
-#matchMedia() polyfill
+#matchMedia() polyfill - (w/ IE7/8 Compatibility)
 
 ## test whether a CSS media type or media query applies
 
