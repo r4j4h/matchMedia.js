@@ -31,7 +31,7 @@
 			};
 
 			ret.removeListener = function( cb ){
-				for( var i =0, il = listeners.length; i< il; i++ ){
+				for( var i =0, il = listeners.length; i < il; i++ ){
 					if( listeners[ i ] === cb ){
 						listeners.splice( i, 1 );
 					}
